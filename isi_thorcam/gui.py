@@ -34,7 +34,7 @@ from PyQt5.QtWidgets import QListWidget,QListWidgetItem,QShortcut
 from PyQt5.QtGui import QImage, QPixmap,QBrush,QPen,QColor,QFont,QKeySequence
 from PyQt5.QtCore import Qt,QSize,QRectF,QLineF,QPointF,QTimer,QDir
 # TODO: use only minimal imports
-from interface import ThorCamRecorder
+from .interface import ThorCamRecorder
 import sys
 import cv2
 from skimage import img_as_ubyte
@@ -125,7 +125,12 @@ class ThorCamISI(QMainWindow):
                                  frame.strides[0], QImage.Format_RGB888)
             self.scene.addPixmap(QPixmap.fromImage(img))
             self.scene.update()
+
+
 if __name__ == '__main__':
+    main()
+    
+def main():
     app = QApplication(sys.argv)
     instance =  ThorCamISI()
     instance.show()
