@@ -1,3 +1,5 @@
+#      GNU GENERAL PUBLIC LICENSE
+# Joao Couto - feb 2023
 from PyQt5.QtWidgets import (QWidget,
                              QApplication,
                              QGridLayout,

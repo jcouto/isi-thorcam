@@ -1,3 +1,6 @@
+#      GNU GENERAL PUBLIC LICENSE
+# Joao Couto - feb 2023
+
 from thorcam.camera import ThorCam
 import time
 import numpy as np
