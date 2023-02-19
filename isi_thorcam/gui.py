@@ -45,6 +45,7 @@ import numpy as np
 
 class ThorCamISI(QMainWindow):
     app = None
+    conversion_factor = 2**8/2**14
     def __init__(self, app = None):
         super(ThorCamISI,self).__init__()
         # init the cam
@@ -118,7 +119,9 @@ class ThorCamISI(QMainWindow):
         
     def update_image(self):
         if len(self.cam.image):
-            img = img_as_ubyte(self.cam.image)
+            img = self.cam.image#img_as_ubyte(self.cam.image)
+            # convert 14bit to 8bit
+            img = cv2.convertScaleAbs(img, alpha=(self.conversion_factor))
             frame = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
             cv2.putText(frame,str(self.cam.frame), (10,50),
                         cv2.FONT_HERSHEY_SIMPLEX,
